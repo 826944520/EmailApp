@@ -37,6 +37,10 @@ public class POP3Client {
             //pass
             pw.println("pass " + password);
             System.out.println(br.readLine());
+
+            //stat
+            pw.println("stat");
+            System.out.println(br.readLine());
         }
         catch (IOException e){
             e.printStackTrace();
