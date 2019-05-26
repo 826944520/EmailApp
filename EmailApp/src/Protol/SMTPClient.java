@@ -1,3 +1,7 @@
+package Protol;
+
+import Utile.Base64Utile_cc;
+
 import java.io.*;
 import java.net.Socket;
 
@@ -11,7 +15,7 @@ public class SMTPClient {
         this.password = password;
         this.username = username;
     }
-    public void sendMail(String receiveUsername, String data){
+    public void sendMail(String receiveUsername, String data, String title){
         /*
          *对用户名和密码进行Base64编码
          */
@@ -58,7 +62,7 @@ public class SMTPClient {
             System.out.println(br.readLine());
 
             //正文主体(包括标题,发送方,接收方,内容,点)
-            pw.println("subject:myxulinjie");
+            pw.println("subject:" + title);
             pw.println("from:" + username);
             pw.println("to:" + receiveUsername);
             pw.println("Content-Type: text/plain;charset=\"gb2312\"");//设置编码格式可发送中文内容
@@ -83,6 +87,6 @@ public class SMTPClient {
 
     public static void main(String[] args){
         SMTPClient s = new SMTPClient("kenway9276@163.com", "9276Kenway");
-        s.sendMail("454730168@qq.com","nihao!!!!!");
+        s.sendMail("454730168@qq.com","nihao!!!!!", "title");
     }
 }

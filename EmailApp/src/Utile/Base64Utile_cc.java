@@ -1,3 +1,5 @@
+package Utile;
+
 import org.apache.commons.codec.binary.Base64;
 /*
  *基于commons-codec-1.11
